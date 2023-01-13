@@ -7,7 +7,7 @@ export const lightCodeLight: ColorType = null;
 export const lightBackground: ColorType = null;
 
 export const darkPrimary: ColorType = null;
-export const darkSelection: ColorType = '#0070F3';
-export const darkCode: ColorType = '#6cc0e1';
-export const darkCodeLight: ColorType = '#16272e';
+export const darkSelection: ColorType = '#6db33f';
+export const darkCode: ColorType = '#6db33f';
+export const darkCodeLight: ColorType = '#80ea6e';
 export const darkBackground: ColorType = null;
