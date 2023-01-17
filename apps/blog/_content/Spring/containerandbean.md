@@ -8,14 +8,14 @@ category: 'Spring'
 **본 문서는 인프런에서 수강할 수 있는 [스프링 핵심 원리 - 기본편](https://inflearn.com/course/스프링-핵심-원리-기본편)을 수강한 후, 공부한 내용을 정리한 문서입니다. 본 문서의 모든 저작권은 해당 강의의 저자이신 [김영한](https://inflearn.com/users/@yh) 우아한형제들 기술이사님께 있습니다.**
 
 ### Spring 컨테이너
-Spring은 **[IoC(제어의 역전)](https://blog.coderoad.kr/iocanddi)** 개념을 통해 탄생한 구성자, **컨테이너**로 프로그램의 흐름을 제어합니다. Spring에서의 컨테이너를 **Spring 컨테이너**라고 부릅니다. Spring 컨테이너는 **`ApplicationContext`** 인터페이스를 통해 생성하는데, 이 `ApplicationContext` 자체를 Spring 컨테이너라고 하기도 합니다. 본격적으로 Spring을 활용하기 위해선 이 Spring 컨테이너를 생성해야합니다. 방법은 매우 간단합니다.
+Spring은 **[IoC(제어의 역전)](https://blog.coderoad.kr/iocanddi)** 개념을 통해 탄생한 구성자, **컨테이너**로 프로그램의 흐름을 제어합니다. Spring에서의 컨테이너를 **Spring 컨테이너**라고 부릅니다. Spring 컨테이너는 `ApplicationContext` 인터페이스를 통해 생성하는데, 이 `ApplicationContext` 자체를 Spring 컨테이너라고 하기도 합니다. 본격적으로 Spring을 활용하기 위해선 이 Spring 컨테이너를 생성해야합니다. 방법은 매우 간단합니다.
 
 ```java
 //'AppConfig.class'는 프로그래머가 작성한 구성 정보를 담은 Java 설정 클래스입니다.
 ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 ```
 
-위 코드가 바로 Spring 컨테이너를 생성하는 코드입니다. **`AnnotationConfigApplicationContext`**는 `ApplicationContext` 인터페이스의 구현체로, **`AppConfig`**와 같이 구성 정보를 담은 **'어노테이션'** 기반의 **'Java 설정 클래스'**(구성자)를 통해 Spring 컨테이너를 생성합니다. Spring 컨테이너를 생성하는 방식은 다양합니다. 그 중, 대표적인 두 가지가 위의 코드와 같이 어노테이션 기반의 Java 설정 클래스를 통한 생성법과 XML을 기반으로한 생성법입니다. 최근에는 주로 Java 설정 클래스를 통해 Spring 컨테이너를 생성합니다.
+위 코드가 바로 Spring 컨테이너를 생성하는 코드입니다. `AnnotationConfigApplicationContext`는 `ApplicationContext` 인터페이스의 구현체로, `AppConfig`와 같이 구성 정보를 담은 **'어노테이션'** 기반의 **'Java 설정 클래스'**(구성자)를 통해 Spring 컨테이너를 생성합니다. Spring 컨테이너를 생성하는 방식은 다양합니다. 그 중, 대표적인 두 가지가 위의 코드와 같이 어노테이션 기반의 Java 설정 클래스를 통한 생성법과 XML을 기반으로한 생성법입니다. 최근에는 주로 Java 설정 클래스를 통해 Spring 컨테이너를 생성합니다.
 
 우리는 Spring 컨테이너를 생성할 때 Java 설정 클래스(이제 설정 클래스라 작성하겠습니다.)를 활용한다는 것을 알았습니다. 그런데 Spring이 프로그램의 수많은 클래스들 중에 설정 클래스가 무엇인지 어떻게 알 수 있을까요? 또, 어노테이션을 기반으로 한다는데, 어노테이션은 무엇일까요? 당연히 모든 클래스가 설정 클래스가 되는 것은 아닙니다. 프로그램의 구성 정보(DI 정보)를 담고 있다고 해서 자동으로 설정 클래스가 되는 것도 아닙니다. 프로그래머가 설정 클래스로 사용하고자 하는 클래스를 **어노테이션**을 통해 직접 명시해줘야 Spring이 이를 확인하고 컨테이너를 생성하는데 설정 클래스로 등록된 클래스를 활용합니다.
 
