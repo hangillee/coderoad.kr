@@ -8,7 +8,7 @@ category: 'Spring'
 **본 문서는 인프런에서 수강할 수 있는 [스프링 핵심 원리 - 기본편](https://inflearn.com/course/스프링-핵심-원리-기본편)을 수강한 후, 공부한 내용을 정리한 문서입니다. 본 문서의 모든 저작권은 해당 강의의 저자이신 [김영한](https://inflearn.com/users/@yh) 우아한형제들 기술이사님께 있습니다.**
 
 ## Spring 컨테이너
-Spring은 **[IoC(제어의 역전)](https://hangillee.github.io/docs/techstack/spring/04)** 개념을 통해 탄생한 구성자, **컨테이너**로 프로그램의 흐름을 제어합니다. Spring에서의 컨테이너를 **"Spring 컨테이너"**라고 부릅니다. Spring 컨테이너는 **`ApplicationContext`** 인터페이스를 통해 생성하는데, 이 `ApplicationContext` 자체를 Spring 컨테이너라고 하기도 합니다. 본격적으로 Spring을 활용하기 위해선 이 Spring 컨테이너를 생성해야합니다. 방법은 매우 간단합니다.
+Spring은 **[IoC(제어의 역전)](https://blog.coderoad.kr/iocanddi)** 개념을 통해 탄생한 구성자, **컨테이너**로 프로그램의 흐름을 제어합니다. Spring에서의 컨테이너를 **Spring 컨테이너**라고 부릅니다. Spring 컨테이너는 **`ApplicationContext`** 인터페이스를 통해 생성하는데, 이 `ApplicationContext` 자체를 Spring 컨테이너라고 하기도 합니다. 본격적으로 Spring을 활용하기 위해선 이 Spring 컨테이너를 생성해야합니다. 방법은 매우 간단합니다.
 
 ```java
 //'AppConfig.class'는 프로그래머가 작성한 구성 정보를 담은 Java 설정 클래스입니다.
@@ -22,7 +22,7 @@ ApplicationContext applicationContext = new AnnotationConfigApplicationContext(A
 어노테이션은 Java의 문법으로 메타데이터의 일종입니다. 쉽게 설명하자면 해당 코드가 무엇인지 설명해주는 역할을 가집니다. Spring은 여러가지 자체적인 어노테이션들을 가지고 있고, 프로그래머가 이를 사용해 Spring의 기술을 활용할 수 있도록 합니다. 그 중 가장 기초가 되는 것이 바로 순수한 클래스를 설정 클래스로 만들어주는 `@Configuration` 어노테이션입니다. 클래스 선언문 앞에 해당 어노테이션을 붙혀주면 Spring은 해당 클래스를 자동으로 설정 클래스로 인식하고 그에 맞는 동작들을 수행합니다.
 
 ```java
-//이제 AppConfig 클래스는 Spring에 의해 Java 설정 클래스로 관리됩니다.
+//이제 AppConfig 클래스는 Spring에 의해 설정 클래스로 관리됩니다.
 @Configuration
 public class AppConfig {
     ...
@@ -32,7 +32,7 @@ public class AppConfig {
 이렇게 `@Configuration` 어노테이션을 통해 설정 클래스로 등록된 `AppConfig` 클래스는 Spring 컨테이너 생성 시 프로그램의 구성 정보로 활용됩니다. Spring은 `AppConfig`에 적혀진 대로 객체를 생성하고, 관리하며, 의존관계를 주입합니다. 다시 말해, `@Configuration` 어노테이션에 의해 설정 클래스로 등록된 `AppConfig` 클래스는, IoC를 통해 프로그램의 제어권을 가지게 된 Spring 컨테이너에게 해당 프로그램의 설명서 역할을 하는 것입니다. `AnnotationConfigApplicationContext` 클래스를 기반으로 Spring 컨테이너를 생성하기 위해선 `AppConfig`와 같은 설정 클래스가 필수입니다.
 
 ## Spring 빈
-Spring 컨테이너는 생성될 때, 구성 정보로 등록한 Java 설정 클래스(`@Configuration`이 붙은 클래스)에 작성되어 있는 객체들을 모두 생성해서 자기 자신에 등록합니다. 이때, 컨테이너에 등록된 객체들을 **빈(Bean)**이라고 합니다. 물론 설정 클래스에 있는 모든 요소들이 빈으로 등록되는 것은 아닙니다. `@Bean` 어노테이션을 붙힌 메소드가 반환하는 객체들이 등록되는 것입니다. 빈은 정확히는 컨테이너 내부의 빈 저장소에 등록되는데, 빈을 불러올 수 있는 키(key) 역할을 하는 **'빈 이름'**과 실제 객체인 **'빈 객체'**가 같이 등록됩니다. 빈 이름은 따로 지정해주지 않으면 `@Bean`을 붙혀 Spring 빈으로 지정한 메소드 이름으로 자동 저장됩니다. Spring 빈으로 등록하는 법은 다음과 같습니다.
+Spring 컨테이너는 생성될 때, 구성 정보로 등록한 설정 클래스(`@Configuration`이 붙은 클래스)에 작성되어 있는 객체들을 모두 생성해서 자기 자신에 등록합니다. 이때, 컨테이너에 등록된 객체들을 **빈(Bean)**이라고 합니다. 물론 설정 클래스에 있는 모든 요소들이 빈으로 등록되는 것은 아닙니다. `@Bean` 어노테이션을 붙힌 메소드가 반환하는 객체들이 등록되는 것입니다. 빈은 정확히는 컨테이너 내부의 빈 저장소에 등록되는데, 빈을 불러올 수 있는 키(key) 역할을 하는 **'빈 이름'**과 실제 객체인 **'빈 객체'**가 같이 등록됩니다. 빈 이름은 따로 지정해주지 않으면 `@Bean`을 붙혀 Spring 빈으로 지정한 메소드 이름으로 자동 저장됩니다. Spring 빈으로 등록하는 법은 다음과 같습니다.
 
 ```java
 //컨테이너 생성에 활용할 구성 정보를 가진 설정 클래스입니다.
