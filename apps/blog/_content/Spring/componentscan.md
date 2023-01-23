@@ -20,14 +20,14 @@ public class AppConfig {
 }
 ```
 
-이렇게 어노테이션 하나만 추가하고 간단하게 자동 등록 기능이 동작하면 정말 좋겠지만, 그렇지 않습니다. 이 방식을 사용하려면 2가지 선행 조건을 충족해야합니다. **Spring 빈으로 등록하고자 하는 Java 클래스에 `@Component` 어노테이션**을 붙여줘야 하며, 의존관계를 명시한 코드가 설정 클래스에서 없어졌으니 **`@Component` 어노테이션을 붙인 클래스에서 직접 의존성 주입**을 해줘야합니다. 그래도 크게 걱정할 필요 없습니다. Spring은 `@AutoWired` 어노테이션을 통해 의존성 자동 주입 기능도 제공합니다.
+이렇게 어노테이션 하나만 추가하고 간단하게 자동 등록 기능이 동작하면 정말 좋겠지만, 그렇지 않습니다. 이 방식을 사용하려면 2가지 선행 조건을 충족해야합니다. **Spring 빈으로 등록하고자 하는 Java 클래스에 `@Component` 어노테이션**을 붙여줘야 하며, 의존관계를 명시한 코드가 설정 클래스에서 없어졌으니 **`@Component` 어노테이션을 붙인 클래스에서 직접 의존관계 주입**을 해줘야합니다. 그래도 크게 걱정할 필요 없습니다. Spring은 `@AutoWired` 어노테이션을 통해 의존관계 자동 주입 기능도 제공합니다.
 
 ```java
 @Component //이제 이 Java 클래스는 Spring 빈입니다.
 public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
 
-    @Autowired //Spring이 MemberRepository에 대한 의존성을 자동으로 주입해줍니다.
+    @Autowired //Spring이 MemberRepository에 대한 의존관계를 자동으로 주입해줍니다.
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
