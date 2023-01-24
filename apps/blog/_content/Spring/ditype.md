@@ -86,9 +86,37 @@ public class MemberServiceImpl implements MemberService {
 }
 ```
 
-### 옵션 처리
+### 주입 옵션 처리
+앞서 살펴본 여러 의존관계 주입 방식 중, 선택적으로 의존관계를 주입할 때 수정자 주입 방식을 사용해야 한다는 것을 알았습니다. 다시 말하자면, 주입할 Spring 빈이 없어도 애플리케이션이 정상 작동해야할 때가 있습니다. 그런데 자동 주입 방식의 `@Autowired` 어노테이션은 주입 대상 빈이 없으면 오류가 발생해, `@Autowired(required = false)`와 같이 옵션 값을 넣어줘야 한다는 것도 잠깐 설명했습니다. 이 방법은 만약 자동 주입 대상이 없다면 수정자 메소드 자체가 실행되지 않습니다.
+
+`@Autowired`에 옵션 값을 지정하는 방법 외에도 주입 옵션을 설정하는 방법은 2가지가 있습니다.
+* `@Nullable` : 자동 주입 대상이 없다면 `null`을 입력
+* `Optional<>` : 자동 주입 대상이 없다면 `Optional.empty` 입력
+
+두 방법의 예시는 다음과 같습니다.
+
+```java
+private Member nullMember;
+private Member optionalMember;
+
+@Autowired
+public void setBeanNullable(@Nullable Member member) {
+    this.nullMember = member;
+}
+
+@Autowired
+public void setBeanOptional(Optional<Member> member) {
+    this.optionalMember = member;
+}
+```
+
+`Member`가 Spring 빈이 아니라고 가정했을 때, 두 수정자 메소드에 의해 필드에 입력되는 값은 각각 `null`과 `Optional.empty`가 됩니다.
 
 ### 생성자 주입을 선택해야하는 이유
+지금까지 크게 3가지 의존관계 주입 방식에 대해 정리해봤습니다. 이 방식들 중, **필드 주입 방식은 지양**하는게 좋다는 것과 그 이유에 대해서도 알아봤습니다. 그럼 도대체 어떤 방식을 주로 사용해야하는 걸까요? 이 질문에 대한 답은 **생성자 주입을 적극 권장하며, 선택적인 의존관계(필수가 아닌 의존관계)를 지정할 때만 제한적으로 수정자 주입 방식을 사용한다.**입니다. 이는 생성자 주입이 가지는 강력한 장점 때문입니다.
+
+#### 불변
+먼저, 생성자 주입 방식을 통해 의존관계를 주입하면, **애플리케이션이 작동 중인 동안에 변경되지 않습니다.** 대부분의 의존관계가 애플리케이션 종료 전까지 변할 일이 없어야 한다는 걸 생각하면 이는 훌륭한 장점입니다. 사실, 수정자 주입 방식의 `Setter`는 의도치 않은 변경에 매우 취약해 좋은 설계 방법이 아닙니다. 따라서, 객체를 생성할 때 딱 1번만 호출되는 **생성자 주입 방식**을 사용하도록 설계하는 것이 훨씬 좋은 방법입니다.
 
 ### Lombok
 
