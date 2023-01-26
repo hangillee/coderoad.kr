@@ -1,5 +1,5 @@
 ---
-title: '의존관계 자동 주입'
+title: '의존관계 주입'
 subtitle: '다양한 DI 방식들'
 date: 2023-01-15 06:45:07
 category: 'Spring'
@@ -181,6 +181,32 @@ public class MemberServiceImpl implements MemberService {
 최근 실무에서는 이렇게 생성자를 1개만 둬 `@Autowired` 어노테이션을 생략하는 방법을 사용한다고 합니다. 거기에 `Lombok` 라이브러리까지 활용해 코드를 최대한 깔끔하게 만들되 기능은 모두 제공하는 방식으로 코드를 작성한다고 합니다.
 
 ## 중복 빈이 존재할 때
+
+중복된 Spring 빈, 다시 말해 같은 타입의 빈이 여러개 존재할 경우, `NoUniqueBeanDefinitionException` 오류가 발생할 수 있습니다. 자동으로 의존관계를 주입해주는 `@Autowired` 어노테이션은 타입 기반으로 빈을 조회하는데, [Spring 컨테이너와 빈](https://blog.coderoad.kr/containerandbean) 포스트에서 정리했던 것처럼 동일한 타입의 빈이 존재하면 오류가 발생합니다. 이 오류를 해결하는 방법에는 여러가지가 있지만, **의존관계 자동 주입 방식을 유지하면서 해결**하는 방법들에 대해 알아보겠습니다.
+
+### @Autowired 필드 이름과 빈 이름 매칭
+
+가장 먼저, 간단하면서도 코드 변경도 적은 방법입니다. 예시로 간단한 의존관계 주입 코드를 작성해봤습니다.
+
+```java
+@Autowired
+//DiscountPolicy 타입의 Spring 빈이 하나만 있다면 문제 없지만...
+private DiscountPolicy discountPolicy;
+```
+
+만약, `DiscountPolicy` 타입의 빈이 여러개 있다면, 오류가 발생할 것입니다. **`@Autowired` 필드 이름 매칭 방식**으로 오류를 해결하려면 다음과 같이 빈 이름을 필드 이름으로 작성해주시면 됩니다.
+
+```java
+@Autowired
+//DiscountPolicy 타입의 rateDiscountPolicy Spring 빈을 주입합니다.
+private DiscountPolicy rateDiscountPolicy;
+```
+
+이렇게 빈 이름을 필드 이름으로 작성하면 `DiscountPolicy` 타입의 `rateDiscountPolicy` 빈이 주입됩니다.
+
+### @Qualifier와 @Primary 활용
+
+추가적으로 2가지 방식이 있습니다. `@Qualifier`와 `@Primary` 어노테이션을 활용하는 방법입니다. 먼저 `@Qualifier` 어노테이션은
 
 ## 조회한 빈이 모두 필요할 때
 
