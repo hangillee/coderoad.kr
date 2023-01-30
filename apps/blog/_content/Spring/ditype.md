@@ -1,7 +1,7 @@
 ---
 title: '의존관계 주입'
 subtitle: '다양한 DI 방식들'
-date: 2023-01-15 06:45:07
+date: 2023-01-15 06:53:00
 category: 'Spring'
 ---
 
@@ -222,8 +222,12 @@ public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDisco
     this.memberRepository = memberRepository;
     this.discountPolicy = discountPolicy;
 }
+```
 
 ## 조회한 빈이 모두 필요할 때
 
 ## 자동과 수동 빈 등록, 올바른 실무 운영법
+
+```
+
 ```

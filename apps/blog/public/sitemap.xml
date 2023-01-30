@@ -1,32 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://comet-land-blog.vercel.app</loc>
+    <loc>https://blog.coderoad.kr</loc>
   </url>
 
   <url>
-    <loc>https://comet-land-blog.vercel.app/bar</loc>
+    <loc>https://blog.coderoad.kr/cache</loc>
   </url>
   <url>
-    <loc>https://comet-land-blog.vercel.app/foo</loc>
+    <loc>https://blog.coderoad.kr/http</loc>
   </url>
   <url>
-    <loc>https://comet-land-blog.vercel.app/how-to-start</loc>
+    <loc>https://blog.coderoad.kr/httpheader</loc>
   </url>
   <url>
-    <loc>https://comet-land-blog.vercel.app/kbar-support</loc>
+    <loc>https://blog.coderoad.kr/httpmethod</loc>
   </url>
   <url>
-    <loc>https://comet-land-blog.vercel.app/markdown</loc>
+    <loc>https://blog.coderoad.kr/httpstatus</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/internet</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/uri</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/beanscope</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/componentscan</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/containerandbean</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/ditype</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/iocanddi</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/lifecyclecallback</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/oop</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/singleton</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/solid</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/spring</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/backendhistory</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/multithread</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/servlet</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/webwas</loc>
   </url>
 
   <url>
-    <loc>https://comet-land-blog.vercel.app/category/Bar</loc>
+    <loc>https://blog.coderoad.kr/category/HTTP</loc>
   </url>
   <url>
-    <loc>https://comet-land-blog.vercel.app/category/Foo</loc>
+    <loc>https://blog.coderoad.kr/category/Spring</loc>
   </url>
   <url>
-    <loc>https://comet-land-blog.vercel.app/category/Guide</loc>
+    <loc>https://blog.coderoad.kr/category/Spring MVC</loc>
   </url>
 </urlset>

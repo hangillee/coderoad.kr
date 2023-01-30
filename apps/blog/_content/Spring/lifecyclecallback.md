@@ -1,7 +1,7 @@
 ---
 title: '빈 생명주기와 콜백'
 subtitle: 'Spring 빈의 생명주기, 콜백이란?'
-date: 2023-01-15 06:45:08
+date: 2023-01-15 06:55:00
 category: 'Spring'
 ---
 
