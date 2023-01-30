@@ -206,8 +206,24 @@ private DiscountPolicy rateDiscountPolicy;
 
 ### @Qualifier와 @Primary 활용
 
-추가적으로 2가지 방식이 있습니다. `@Qualifier`와 `@Primary` 어노테이션을 활용하는 방법입니다. 먼저 `@Qualifier` 어노테이션은
+필드 이름 매칭 방식 외에도 활용할만한 방식이 2가지 더 있습니다. `@Qualifier`와 `@Primary` 어노테이션을 활용하는 방법입니다. 먼저 `@Qualifier` 어노테이션은 빈을 등록할 때, 추가적인 주입 옵션을 부여하는 어노테이션입니다. 사용 방법은 다음과 같습니다.
+
+```java
+@Component
+@Qualifier("mainDiscountPolicy")
+public class RateDiscountPolicy implements DiscountPolicy {}
+```
+
+위와 같이 Spring 빈으로 등록할 클래스에 `@Qualifier` 어노테이션으로 의존관계 주입 시에 추가적으로 사용할 옵션을 부여할 수 있습니다.
+
+```java
+@Autowired
+public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
+    this.memberRepository = memberRepository;
+    this.discountPolicy = discountPolicy;
+}
 
 ## 조회한 빈이 모두 필요할 때
 
 ## 자동과 수동 빈 등록, 올바른 실무 운영법
+```
