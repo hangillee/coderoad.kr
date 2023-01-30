@@ -1,7 +1,7 @@
 ---
 title: '빈 스코프'
 subtitle: 'Spring 빈의 스코프'
-date: 2023-01-15 06:57:00
+date: 2023-01-24 00:00:00
 category: 'Spring'
 ---
 

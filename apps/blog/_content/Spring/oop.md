@@ -1,7 +1,7 @@
 ---
 title: '좋은 객체 지향 프로그래밍'
 subtitle: 'Spring과 OOP'
-date: 2023-01-15 06:46:00
+date: 2023-01-16 00:00:00
 category: 'Spring'
 ---
 

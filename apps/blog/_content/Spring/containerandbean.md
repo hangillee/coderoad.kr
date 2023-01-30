@@ -1,7 +1,7 @@
 ---
 title: 'Spring 컨테이너와 빈'
 subtitle: '컨테이너와 빈의 개념 정리'
-date: 2023-01-15 06:49:00
+date: 2023-01-19 00:00:00
 category: 'Spring'
 ---
 

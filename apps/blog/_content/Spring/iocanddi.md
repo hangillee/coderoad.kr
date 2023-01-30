@@ -1,7 +1,7 @@
 ---
 title: 'IoC와 DI'
 subtitle: 'Spring의 시작과 끝, IoC와 DI'
-date: 2023-01-15 06:48:00
+date: 2023-01-18 00:00:00
 category: 'Spring'
 ---
 

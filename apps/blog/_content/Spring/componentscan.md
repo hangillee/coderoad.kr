@@ -1,7 +1,7 @@
 ---
 title: '컴포넌트 스캔'
 subtitle: 'Spring 빈을 더 현명하게 관리하기'
-date: 2023-01-15 06:51:00
+date: 2023-01-21 00:00:00
 category: 'Spring'
 ---
 

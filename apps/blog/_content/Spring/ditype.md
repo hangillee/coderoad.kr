@@ -1,7 +1,7 @@
 ---
 title: '의존관계 주입'
 subtitle: '다양한 DI 방식들'
-date: 2023-01-15 06:53:00
+date: 2023-01-22 00:00:00
 category: 'Spring'
 ---
 
@@ -214,7 +214,7 @@ private DiscountPolicy rateDiscountPolicy;
 public class RateDiscountPolicy implements DiscountPolicy {}
 ```
 
-위와 같이 Spring 빈으로 등록할 클래스에 `@Qualifier` 어노테이션으로 의존관계 주입 시에 추가적으로 사용할 옵션을 부여할 수 있습니다.
+위와 같이 Spring 빈으로 등록할 클래스에 `@Qualifier` 어노테이션으로 의존관계 주입 시에 추가적으로 사용할 옵션을 부여할 수 있습니다. `@Qualifier`를 통해 추가한 옵션은 다음과 같이 의존관계 주입 시 활용할 수 있습니다. 예시로 우리의 주력 의존관계 주입 방식이 되어야 하는 생성자 주입 방식을 사용하겠습니다.
 
 ```java
 @Autowired
@@ -224,10 +224,47 @@ public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDisco
 }
 ```
 
+이렇게 `@Qualifier`를 사용하면 `@Qualifier` 어노테이션을 통해 `mainDiscountPolicy`라는 이름을 옵션으로 추가한 빈을 먼저 매칭하고, 없다면 변수 이름과 동일한 빈 이름을 가진 빈을 매칭합니다.
+
+마지막으로 `@Primary`는 여러 동일한 타입의 빈들이 있을 경우, **우선 순위**를 지정해주는 어노테이션입니다. `@Autowired`를 통해 의존관계를 자동 주입할 때, 같은 타입의 빈들이 여러개 매칭되면, `@Primary` 어노테이션이 붙은 빈이 우선권을 가지게 됩니다.
+
+```java
+@Component
+@Primary //RateDiscountPolicy 빈이 우선 순위가 높습니다.
+public class RateDiscountPolicy implements DiscountPolicy {}
+
+@Component
+public class FixDiscountPolicy implements DiscountPolicy {}
+```
+
+위와 같이 코드를 작성하면 `RateDiscountPolicy` 빈이 같은 타입을 가진 `FixDiscountPolicy` 빈 보다 더 높은 우선 순위를 갖고 있게 됩니다. 따라서 다음 코드 실행 시, `discountPolicy` 필드에는 `RateDiscountPolicy`가 주입됩니다.
+
+```java
+@Autowired
+public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+      this.memberRepository = memberRepository;
+      this.discountPolicy = discountPolicy; //@Primary가 붙은 RateDiscountPolicy가 주입됩니다.
+}
+```
+
+지금까지 살펴본 바로는 `@Qualifier`와 `@Primary` 모두 사용하는데 크게 번거로움은 없어보입니다. 둘 중 아무거나 사용해도 꽤 괜찮은 코드가 완성될 것입니다. 그러나 좀 더 세밀하게 두 어노테이션의 용도를 구분하자면 `@Primary`는 코드에서 자주 사용하는 빈을 주입해야할 때, `@Qualifier`는 특별히 지정해줘야하는 빈을 주입해야할 때 사용하는 것이 더 깔끔한 코드를 유지할 수 있습니다.
+
+두 어노테이션 간의 우선 순위는 Spring의 기본적인 우선 순위와도 연관이 있습니다. Spring은 **자동 보다 수동**, **넓은 범위 보다 좁은 범위**가 **우선권을 갖습니다.** 따라서, 더 좁은 범위(특정 빈)를 의존관계 주입 대상으로 지정하는 `@Qualifier`가 우선권을 갖습니다. 이런 정책 덕분에 특별히 원하는 빈을 주입하고 싶은 곳에만 `@Qualifier`로 지정해주는 방식이 유효한 것입니다.
+
 ## 조회한 빈이 모두 필요할 때
+
+만약, **의도적으로 타입이 중복된 빈들이 모두 필요**한 경우가 생길 때는 어떻게 해야할까요? 너무나 간단하게도 `List`나 `Map` 같은 자료구조를 활용해 모든 빈을 일단 컨테이너로부터 불러오고, 필요에 따라 의존관계를 주입하는 방식으로 같은 타입의 여러 빈들을 활용할 수도 있습니다.
+
+이를 소위 **전략 패턴**이라고 합니다. 사용자가 건네준 조건에 따라 다르게 작동해야하는 로직이 있을 때, 타입은 같되 로직이 서로 다른 빈들을 미리 **모두** 준비해두고, Spring 빈 주입 시, 조건에 맞춰 필요한 빈을 유연하게 주입합니다.
+
+전략 패턴을 적절하게 활용하면 추가적인 코드 변경 필요 없이 원하는 로직을 적재적소에 구동할 수 있게 할 수 있습니다. 바로, SOLID의 OCP를 잘 지킨 코드가 되는 것입니다.
 
 ## 자동과 수동 빈 등록, 올바른 실무 운영법
 
-```
+지금까지 상당히 긴 호흡으로 Spring의 의존관계 주입에 대해 알아봤습니다. 어노테이션을 통한 수동 빈 등록과 [컴포넌트 스캔](https://blog.coderoad.kr/componentscan) 빈 등록, 여러 의존관계 주입 방식들의 장단점 등, Spring이 빈과 의존관계를 다루는 정말 다양한 방식들을 알게 되었는데, 도대체 어떤 방식을 기본으로 사용해야하는 것인지 확신이 서진 않습니다.
 
-```
+천천히 생각해보면 개발자들은 비효율적이고 반복적인 과정을 **직접** 겪어야할 필요가 없습니다. 오히려 그런 과정들을 피할 수 있다면 기존의 방식을 과감하게 포기하고 더 간편하고 효율적인 방식으로 코드를 작성해야합니다. 우리가 사용하는 Spring 생태계는 **자동** 방식들을 선호하고, 더 나아가 자동 방식들을 **기본으로 사용**합니다.
+
+물론, 애플리케이션의 설정 정보를 가지는 **구성자**인 **Java 설정 클래스**나 xml 파일을 통해 애플리케이션의 실제 로직과 구성 정보를 분리해주는 것이 이상적인 코드지만, 개발자는 간편한 컴포넌트 스캔 기능을 포기할 이유가 없습니다. **Spring이 자동 빈 등록 기능을 사용해도 OCP와 DIP를 준수할 수 있도록 돕기 때문에**, Java 설정 클래스를 개발자가 직접 관리하는 것은 오히려 부담스러운 작업이 될 가능성이 높습니다.
+
+기본적으로 자동 빈 등록과 자동 의존관계 주입 방식을 사용하다가, 애플리케이션에 광범위하게 영향을 미치는 **기술 지원 객체나 다형성을 적극 활용해야할 때**, 수동 빈 등록과 주입 방식을 사용하는 것을 추천합니다. 데이터베이스 연결과 같은 애플리케이션 전반에서 필요한 기능을 담당하는 **기술 지원 객체**는 그렇게 많은 수가 필요하지도 않고, 오히려 수동 등록을 통해 어떤 빈인지 명확하게 하는 것이 유지보수에 도움이 된다고 합니다.

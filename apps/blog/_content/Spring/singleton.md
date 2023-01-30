@@ -1,7 +1,7 @@
 ---
 title: '싱글톤'
 subtitle: 'Spring과 싱글톤 패턴'
-date: 2023-01-15 06:50:00
+date: 2023-01-20 00:00:00
 category: 'Spring'
 ---
 
