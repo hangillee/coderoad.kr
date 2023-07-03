@@ -2,7 +2,7 @@
 title: '정적 팩토리 메소드'
 subtitle: 'Effective Java 3/E 정리 01'
 date: 2023-07-04 00:00:00
-category: 'Spring'
+category: 'Book'
 ---
 
 > 생성자 대신 정적 팩토리 메소드를 고려하라
