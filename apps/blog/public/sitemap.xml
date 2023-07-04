@@ -5,6 +5,15 @@
   </url>
 
   <url>
+    <loc>https://blog.coderoad.kr/oop</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/hackathon</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/miniproject</loc>
+  </url>
+  <url>
     <loc>https://blog.coderoad.kr/cache</loc>
   </url>
   <url>
@@ -24,6 +33,9 @@
   </url>
   <url>
     <loc>https://blog.coderoad.kr/uri</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/static-factory-method</loc>
   </url>
   <url>
     <loc>https://blog.coderoad.kr/beanscope</loc>
@@ -62,6 +74,9 @@
     <loc>https://blog.coderoad.kr/multithread</loc>
   </url>
   <url>
+    <loc>https://blog.coderoad.kr/mvcpattern</loc>
+  </url>
+  <url>
     <loc>https://blog.coderoad.kr/servlet</loc>
   </url>
   <url>
@@ -69,7 +84,16 @@
   </url>
 
   <url>
+    <loc>https://blog.coderoad.kr/category/Book</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/category/GDSC</loc>
+  </url>
+  <url>
     <loc>https://blog.coderoad.kr/category/HTTP</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/category/Java</loc>
   </url>
   <url>
     <loc>https://blog.coderoad.kr/category/Spring</loc>

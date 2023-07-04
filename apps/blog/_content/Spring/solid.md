@@ -13,7 +13,7 @@ SOLID, 단단하다는 뜻을 가진 영단어입니다. Spring과 SOLID는 도�
 
 그 원칙들은 다음과 같습니다.
 
-<table>
+<table style="border: 1px solid gray;">
     <tr>
         <th colspan="2">SOLID</th>
     </tr>

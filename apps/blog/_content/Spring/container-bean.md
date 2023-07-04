@@ -9,7 +9,7 @@ category: 'Spring'
 
 ## Spring 컨테이너
 
-Spring은 **[IoC(제어의 역전)](https://blog.coderoad.kr/iocanddi)** 개념을 통해 탄생한 구성자, **컨테이너**로 프로그램의 흐름을 제어합니다. Spring에서의 컨테이너를 **Spring 컨테이너**라고 부릅니다. Spring 컨테이너는 `ApplicationContext` 인터페이스를 통해 생성하는데, 이 `ApplicationContext` 자체를 Spring 컨테이너라고 하기도 합니다. 본격적으로 Spring을 활용하기 위해선 이 Spring 컨테이너를 생성해야합니다. 방법은 매우 간단합니다.
+Spring은 **[IoC(제어의 역전)](https://blog.coderoad.kr/ioc-di)** 개념을 통해 탄생한 구성자, **컨테이너**로 프로그램의 흐름을 제어합니다. Spring에서의 컨테이너를 **Spring 컨테이너**라고 부릅니다. Spring 컨테이너는 `ApplicationContext` 인터페이스를 통해 생성하는데, 이 `ApplicationContext` 자체를 Spring 컨테이너라고 하기도 합니다. 본격적으로 Spring을 활용하기 위해선 이 Spring 컨테이너를 생성해야합니다. 방법은 매우 간단합니다.
 
 ```java
 //'AppConfig.class'는 프로그래머가 작성한 구성 정보를 담은 Java 설정 클래스입니다.
