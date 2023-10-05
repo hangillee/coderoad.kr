@@ -1,9 +1,11 @@
 ---
 title: '프록시'
 subtitle: '진짜 객체와 가짜 객체, 그리고 성능'
-date: 2023-07-08 02:35:00
+date: '2023-07-09'
 category: 'JPA'
 ---
+
+<!-- 07 -->
 
 **본 문서는 인프런에서 수강할 수 있는 [자바 ORM 표준 JPA 프로그래밍 - 기본편](https://www.inflearn.com/course/ORM-JPA-Basic)을 수강한 후, 공부한 내용을 정리한 문서입니다. 본 문서에 포함된 코드, 이미지 등의 모든 저작권은 해당 강의의 저자이신 [김영한](https://inflearn.com/users/@yh) 강사님께 있습니다.**
 
