@@ -5,7 +5,7 @@
   </url>
 
   <url>
-    <loc>https://blog.coderoad.kr/oop</loc>
+    <loc>https://blog.coderoad.kr/essence-oop</loc>
   </url>
   <url>
     <loc>https://blog.coderoad.kr/hackathon</loc>
@@ -17,16 +17,16 @@
     <loc>https://blog.coderoad.kr/cache</loc>
   </url>
   <url>
+    <loc>https://blog.coderoad.kr/http-header</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/http-method</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/http-status</loc>
+  </url>
+  <url>
     <loc>https://blog.coderoad.kr/http</loc>
-  </url>
-  <url>
-    <loc>https://blog.coderoad.kr/httpheader</loc>
-  </url>
-  <url>
-    <loc>https://blog.coderoad.kr/httpmethod</loc>
-  </url>
-  <url>
-    <loc>https://blog.coderoad.kr/httpstatus</loc>
   </url>
   <url>
     <loc>https://blog.coderoad.kr/internet</loc>
@@ -35,25 +35,55 @@
     <loc>https://blog.coderoad.kr/uri</loc>
   </url>
   <url>
+    <loc>https://blog.coderoad.kr/about-jpa</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/advanced-mapping</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/cascade</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/entity-mapping</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/loading</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/persistence-management</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/proxy</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/relational-mapping-basic</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/relational-mapping-types</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/value-type</loc>
+  </url>
+  <url>
     <loc>https://blog.coderoad.kr/static-factory-method</loc>
   </url>
   <url>
-    <loc>https://blog.coderoad.kr/beanscope</loc>
+    <loc>https://blog.coderoad.kr/bean-scope</loc>
   </url>
   <url>
-    <loc>https://blog.coderoad.kr/componentscan</loc>
+    <loc>https://blog.coderoad.kr/component-scan</loc>
   </url>
   <url>
-    <loc>https://blog.coderoad.kr/containerandbean</loc>
+    <loc>https://blog.coderoad.kr/container-bean</loc>
   </url>
   <url>
-    <loc>https://blog.coderoad.kr/ditype</loc>
+    <loc>https://blog.coderoad.kr/di-type</loc>
   </url>
   <url>
-    <loc>https://blog.coderoad.kr/iocanddi</loc>
+    <loc>https://blog.coderoad.kr/ioc-di</loc>
   </url>
   <url>
-    <loc>https://blog.coderoad.kr/lifecyclecallback</loc>
+    <loc>https://blog.coderoad.kr/lifecycle-callback</loc>
   </url>
   <url>
     <loc>https://blog.coderoad.kr/oop</loc>
@@ -68,19 +98,46 @@
     <loc>https://blog.coderoad.kr/spring</loc>
   </url>
   <url>
-    <loc>https://blog.coderoad.kr/backendhistory</loc>
+    <loc>https://blog.coderoad.kr/java-web-history</loc>
   </url>
   <url>
-    <loc>https://blog.coderoad.kr/multithread</loc>
+    <loc>https://blog.coderoad.kr/multi-thread</loc>
   </url>
   <url>
-    <loc>https://blog.coderoad.kr/mvcpattern</loc>
+    <loc>https://blog.coderoad.kr/mvc-pattern</loc>
   </url>
   <url>
     <loc>https://blog.coderoad.kr/servlet</loc>
   </url>
   <url>
-    <loc>https://blog.coderoad.kr/webwas</loc>
+    <loc>https://blog.coderoad.kr/web-was</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/precourse-week1</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/precourse-week2</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/precourse-week3</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/precourse-week4</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/woowacourse-final-test</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/woowacourse-level1-mission1</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/woowacourse-level1-mission2</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/woowacourse-level1-mission3</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/woowacourse-level1-mission4</loc>
   </url>
 
   <url>
@@ -93,6 +150,9 @@
     <loc>https://blog.coderoad.kr/category/HTTP</loc>
   </url>
   <url>
+    <loc>https://blog.coderoad.kr/category/JPA</loc>
+  </url>
+  <url>
     <loc>https://blog.coderoad.kr/category/Java</loc>
   </url>
   <url>
@@ -100,5 +160,8 @@
   </url>
   <url>
     <loc>https://blog.coderoad.kr/category/Spring MVC</loc>
+  </url>
+  <url>
+    <loc>https://blog.coderoad.kr/category/우아한테크코스</loc>
   </url>
 </urlset>
